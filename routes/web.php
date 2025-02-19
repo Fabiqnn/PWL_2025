@@ -30,6 +30,34 @@ Route::get('/articles/{id}', function ($id) {
     return 'ID : ' . $id;
 });
 
-Route::get('/user/{name?}' , function ($name='John') {
-    return 'Nama Saya = ' . $name;
+// Route::get('/user/{name?}' , function ($name='John') {
+//     return 'Nama Saya = ' . $name;
+// });
+
+//percobaan 4 
+
+Route::get('/user/profile' , function () {
+
+}) -> name('profile');
+
+Route::middleware(['first', 'seccond']) -> group(function () {
+    Route::get('/', function () {
+
+    });
+
+    Route::get('/user/profile', function () {
+
+    });
+});
+
+Route::domain('{account}.example.com')->group(function () {
+    Route::get('user/{id}', function ($account, $id) {
+
+    });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/user', [UserController::class, 'index']);
+    Route::get('/post', [PostController::class, 'index']);
+    Route::get('/event', [EventController::class, 'index']);
 });
