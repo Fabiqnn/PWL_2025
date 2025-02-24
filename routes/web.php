@@ -59,3 +59,7 @@ Route::get('/user/profile' , function () {
 //     Route::get('/post', [PostController::class, 'index']);
 //     Route::get('/event', [EventController::class, 'index']);
 // });
+
+use App\Http\Controllers\PhotoController;
+Route::resource('photos', PhotoController::class)->only(['index', 'show']);
+Route::resource('photos', PhotoController::class)->except(['create', 'store', 'update', 'destroy']);
