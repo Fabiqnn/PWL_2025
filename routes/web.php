@@ -66,7 +66,14 @@ Route::resource('photos', PhotoController::class)->only(['index', 'show']);
 Route::resource('photos', PhotoController::class)->except(['create', 'store', 'update', 'destroy']);
 
 // percobaan 7
+// Route::get('/greeting', function () {
+//     return view('hello', ['name' => 'Fabian Hasbillah']);
+// });
+
+// percobaan 8
 Route::get('/greeting', function () {
-    return view('hello', ['name' => 'Fabian Hasbillah']);
+    return view('blog.hello', ['name' => 'Fabian Hasbillah']);
 });
+
+// percobaan 9
 
