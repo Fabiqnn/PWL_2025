@@ -71,9 +71,10 @@ Route::resource('photos', PhotoController::class)->except(['create', 'store', 'u
 // });
 
 // percobaan 8
-Route::get('/greeting', function () {
-    return view('blog.hello', ['name' => 'Fabian Hasbillah']);
-});
+// Route::get('/greeting', function () {
+//     return view('blog.hello', ['name' => 'Fabian Hasbillah']);
+// });
 
 // percobaan 9
+Route::get('/greeting', [WelcomeController::class, 'greeting']);
 
